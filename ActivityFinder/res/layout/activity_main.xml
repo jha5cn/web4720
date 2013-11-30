@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/Linearlayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+<TableLayout 
+    android:id="@+id/tableLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="625dp"
+    android:stretchColumns="1"
+    android:focusableInTouchMode="true"
+    android:paddingTop="45dp" >
+    
+    <View
+        android:layout_height="2dip"
+        android:background="#3300CC" />
+ 
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="10dip"
+        android:paddingTop="200dp" >
+
+        <TextView
+            android:id="@+id/textView99"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center"
+            android:text="Academics"
+            android:textSize="30dp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </TableRow>
+
+    <View
+        android:layout_height="2dip"
+        android:background="#3300cc" />
+ 	
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:scrollbars="none" >
+    
+    	<TableRow
+        	android:id="@+id/tableRow3"
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:gravity="center"
+        	android:padding="5dip" >
+    	</TableRow>
+    
+    </HorizontalScrollView>
+        
+        <View
+        android:layout_height="2dip"
+        android:background="#ff9900" />
+ 
+    <TableRow
+        android:id="@+id/tableRow5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="5dip" >
+        
+        <TextView
+          	android:id="@+id/textView4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Athletics"
+            android:textSize="30dp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+    </TableRow>
+    
+        <View
+        android:layout_height="2dip"
+        android:background="#ff9900" />
+        
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:scrollbars="none" >
+    
+    	<TableRow
+        	android:id="@+id/tableRow9"
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:gravity="center"
+        	android:padding="5dip" >
+    	</TableRow>
+    
+    </HorizontalScrollView>
+ 
+</TableLayout>
+
+    <LinearLayout android:id="@+id/llfooter"
+        android:layout_weight="1" 
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal" 
+        android:visibility="visible" 
+        android:weightSum="2.0" 
+        android:gravity="bottom"
+        android:layout_margin="0dp"
+        android:background="#000000">
+
+        <Button android:id="@+id/home" 
+            android:layout_height="fill_parent"
+            android:layout_width="wrap_content" 
+            android:layout_weight="1"
+            android:textColor="#FFFFFF"
+            android:text="Home"
+            android:onClick="Home"></Button>
+
+        <Button android:id="@+id/issue" 
+            android:layout_height="fill_parent"
+            android:layout_width="wrap_content" 
+            android:layout_weight="1"
+            android:textColor="#FFFFFF"
+            android:text="My Activities"
+            android:onClick="MyActivities"></Button>
+          </LinearLayout>
+
+
+</LinearLayout>

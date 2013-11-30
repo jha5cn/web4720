@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Linearlayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+   <RelativeLayout
+       android:id="@+id/RelativeLayout1"
+       android:layout_width="fill_parent"
+       android:layout_height="625dp"
+       android:gravity="center"
+       android:orientation="horizontal" >
+
+       <TextView
+           android:id="@+id/TextView1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:text="User Name" 
+           android:textSize="40dp"></TextView>
+
+       <EditText
+           android:id="@+id/editTextUserName"
+           android:layout_width="wrap_content"
+           android:layout_height="60dp"
+           android:ems="10"
+           android:layout_below="@+id/TextView1">
+
+           <requestFocus />
+       </EditText>
+
+       <EditText
+           android:id="@+id/editTextPassword"
+           android:layout_width="wrap_content"
+           android:layout_height="60dp"
+           android:ems="10"
+           android:layout_below="@+id/TextView2" >
+
+           <requestFocus />
+       </EditText>
+
+       <TextView
+           android:id="@+id/TextView2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/editTextUserName"
+           android:gravity="center"
+           android:text="Password"
+           android:textSize="40dp"
+            />
+
+       <Button
+           android:id="@+id/button1"
+           android:layout_width="230dp"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/editTextPassword"
+           android:text="Sign In"
+           android:textSize="40dp"
+           android:onClick="Authenticate" />
+       <Button
+           android:id="@+id/button2"
+           android:layout_width="230dp"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/button1"
+           android:text="Register"
+           android:textSize="40dp"
+           android:onClick="Register" />
+        <TextView
+           android:id="@+id/TextViewLoginMessage"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/button2"
+           android:gravity="center"
+            />
+        
+   </RelativeLayout>
+   
+</LinearLayout>

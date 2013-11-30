@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Linearlayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="625dp"
+        android:orientation="horizontal"
+        android:weightSum="4.0" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/FrameLayout1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/FrameLayout1"
+            android:layout_weight="1.2"
+            android:paddingLeft="160dp"
+            android:paddingTop="60dp"
+            android:text="TextView"
+            android:textSize="60dp" />
+
+        <FrameLayout
+            android:id="@+id/FrameLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:paddingRight="80dp"
+            android:paddingTop="60dp" >
+
+            <fragment
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.MapFragment"
+                android:layout_width="600dp"
+                android:layout_height="300dp" />
+        </FrameLayout>
+        
+        <Button
+        android:id="@+id/createGroup"
+        android:layout_width="500dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="60dp"
+        android:text="Create Group"
+        android:textSize="30dp"
+        android:onClick="CreateGroup" />
+        
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="290dp"
+        android:layout_below="@+id/FrameLayout1"
+        android:layout_alignRight="@+id/FrameLayout1"
+        >
+    <TableLayout  
+    android:id="@+id/tableLayoutActivityPage"  
+    android:layout_width="match_parent"  
+    android:layout_height="match_parent"  
+    android:shrinkColumns="*"
+    android:layout_alignParentBottom="true"  
+    android:stretchColumns="*">  
+        <TableRow  
+        android:id="@+id/tableRowTitle"  
+        android:layout_height="wrap_content"  
+        android:layout_width="match_parent"  
+        android:gravity="center_horizontal">  
+        <TextView  
+            android:id="@+id/textView9"  
+            android:layout_width="match_parent"  
+            android:layout_height="wrap_content"  
+            android:textStyle="bold"  
+            android:textSize="20dp"  
+            android:text="Current Groups"  
+            android:gravity="center"  
+            android:layout_span="6"></TextView>  
+    	</TableRow>  
+    	
+        <TableRow  
+        android:id="@+id/tableRow1"  
+        android:layout_height="wrap_content"  
+        android:layout_width="match_parent"
+        android:weightSum="5.0"
+        android:paddingLeft="40dp"
+        android:paddingTop="20dp">  
+        <TextView  
+            android:id="@+id/TextView01"  
+            android:text="Meeting Time"
+            android:layout_weight="1.3"
+            android:textSize="15dp"
+            android:textStyle="bold">
+        </TextView>  
+        <TextView  
+            android:id="@+id/TextView02"  
+            android:text="List of Participants"  
+            android:textStyle="bold"
+            android:layout_weight="1.3"
+            android:textSize="15dp">   
+            </TextView>  
+        <TextView  
+            android:id="@+id/TextView03"  
+            android:text="Current Location"  
+            android:textStyle="bold"  
+            android:layout_weight="1.3"
+            android:textSize="15dp"></TextView>  
+        <TextView  
+            android:id="@+id/TextView04"  
+            android:text="View Group Number:"  
+            android:textStyle="bold"  
+            android:layout_weight="1.3"
+            android:textSize="15dp"></TextView>  
+        </TableRow>
+    
+    </TableLayout>
+    
+    </ScrollView>
+       
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/llfooter"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_margin="0dp"
+        android:layout_weight="1"
+        android:background="#000000"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:weightSum="2.0" >
+
+        <Button
+            android:id="@+id/home"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:onClick="Home"
+            android:text="Home"
+            android:textColor="#FFFFFF" >
+        </Button>
+
+        <Button
+            android:id="@+id/issue"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:onClick="MyActivities"
+            android:text="My Activities"
+            android:textColor="#FFFFFF" >
+        </Button>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.activityfinder"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyA-lzWDopqPvwwuv73gkOkdVavYjTwOtx0" />
+
+        <activity
+            android:name="com.example.activityfinder.MainActivity"
+            android:label="@string/app_name" >
+            
+        </activity>
+        <activity
+            android:name="com.example.activityfinder.GroupPage"
+            android:label="@string/title_activity_group_page" >
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="com.example.activityfinder.MyActivities"
+            android:label="@string/title_activity_my_activities" >
+        </activity>
+        <activity
+            android:name="com.example.activityfinder.ActivityPage"
+            android:label="@string/title_activity_activity_page" >
+        </activity>
+        <activity
+            android:name="com.example.activityfinder.CreateGroup"
+            android:label="@string/title_activity_create_group" >
+        </activity>
+        <activity
+            android:name="com.example.activityfinder.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+        </activity>
+        <activity
+            android:name="com.example.activityfinder.Login"
+            android:label="@string/title_activity_login" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+    </application>
+
+</manifest>

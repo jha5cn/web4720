@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Linearlayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+   <RelativeLayout
+       android:id="@+id/RelativeLayout1"
+       android:layout_width="fill_parent"
+       android:layout_height="625dp"
+       android:orientation="horizontal" >
+
+       <EditText
+           android:id="@+id/editTextLocation"
+           android:layout_width="wrap_content"
+           android:layout_height="60dp"
+           android:ems="10"
+           android:layout_below="@+id/TextView2"
+           android:layout_alignLeft="@+id/TextView2"
+           android:hint="Ex. Amphitheater" >
+
+           <requestFocus />
+       </EditText>
+
+       <Button
+           android:id="@+id/button1"
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:layout_alignParentBottom="true"
+           android:layout_alignParentLeft="true"
+           android:onClick="Create"
+           android:text="Submit"
+           android:textSize="40dp" />
+
+       <TextView
+           android:id="@+id/TextView2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_above="@+id/editTextStartDate"
+           android:layout_centerHorizontal="true"
+           android:text="Location"
+           android:textSize="40dp" />
+
+       <TextView
+           android:id="@+id/TextViewStartDate"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_alignParentTop="true"
+           android:layout_marginLeft="172dp"
+           android:text="Start Date"
+           android:textSize="40dp" />
+
+       <EditText
+           android:id="@+id/editTextStartDate"
+           android:layout_width="wrap_content"
+           android:layout_height="60dp"
+           android:layout_alignLeft="@+id/TextViewStartDate"
+           android:layout_below="@+id/TextViewStartDate"
+           android:ems="10"
+           android:hint="YYYY-MM-DD"
+           android:inputType="date" />
+
+       <TextView
+           android:id="@+id/TextView1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignLeft="@+id/editTextStartDate"
+           android:layout_below="@+id/editTextStartDate"
+           android:gravity="left"
+           android:text="Start Time"
+           android:textSize="40dp" />
+
+       <EditText
+           android:id="@+id/editTextStartTime"
+           android:layout_width="wrap_content"
+           android:layout_height="60dp"
+           android:layout_alignLeft="@+id/TextView1"
+           android:layout_below="@+id/TextView1"
+           android:ems="10"
+           android:hint="HH:MM:SS"
+           android:inputType="time" />
+
+       <TextView
+           android:id="@+id/TextViewEndDate"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentTop="true"
+           android:layout_marginLeft="128dp"
+           android:layout_toRightOf="@+id/editTextLocation"
+           android:text="End Date"
+           android:textSize="40dp" />
+       
+       <EditText
+           android:id="@+id/editTextEndDate"
+           android:layout_width="wrap_content"
+           android:layout_height="60dp"
+           android:ems="10"
+           android:layout_below="@+id/TextViewEndDate"
+           android:layout_alignLeft="@+id/TextViewEndDate"
+           android:hint="YYYY-MM-DD"
+           android:inputType="date" >
+
+           <requestFocus />
+       </EditText>
+       
+       <TextView
+           android:id="@+id/TextViewEndTime"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/editTextEndDate"
+           android:layout_alignLeft="@+id/editTextEndDate"
+           android:text="End Time"
+           android:textSize="40dp" />
+       
+       <EditText
+           android:id="@+id/editTextEndTime"
+           android:layout_width="wrap_content"
+           android:layout_height="60dp"
+           android:ems="10"
+           android:layout_below="@+id/TextViewEndTime"
+           android:layout_alignLeft="@+id/TextViewEndTime"
+           android:hint="HH:MM:SS"
+           android:inputType="time" >
+
+           <requestFocus />
+       </EditText>
+
+       <TextView
+           android:id="@+id/textViewSuccess"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerHorizontal="true"
+           android:layout_centerVertical="true"
+           android:text="" />
+        
+   </RelativeLayout>
+   
+       <LinearLayout
+        android:id="@+id/llfooter"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_margin="0dp"
+        android:layout_weight="1"
+        android:background="#000000"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:weightSum="2.0" >
+
+        <Button
+            android:id="@+id/home"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:onClick="Home"
+            android:text="Home"
+            android:textColor="#FFFFFF" >
+        </Button>
+
+        <Button
+            android:id="@+id/issue"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:onClick="MyActivities"
+            android:text="My Activities"
+            android:textColor="#FFFFFF" >
+        </Button>
+    </LinearLayout>
+    
+</LinearLayout>
