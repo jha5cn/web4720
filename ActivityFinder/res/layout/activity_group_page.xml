@@ -112,7 +112,7 @@
         android:layout_marginRight="15dp"
         android:layout_marginTop="500dp"
         android:onClick="scheduleActivity"
-        android:text="Join Group" />
+        android:text="" />
 
     <TextView
         android:id="@+id/textViewTurnip"
