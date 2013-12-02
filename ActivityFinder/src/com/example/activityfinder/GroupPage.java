@@ -17,12 +17,15 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.ActionBar.LayoutParams;
 import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -62,6 +65,11 @@ public class GroupPage extends Activity {
 	String joinGroupDefaultURL = "http://plato.cs.virginia.edu/~cs4720f13beet/groups/"; 
 	String joinGroupURL;
 	JsonObject joinStatus;
+	String checkGroupsURL = "http://plato.cs.virginia.edu/~cs4720f13beet/users/";
+	ArrayList<UserGroups> groups = new ArrayList<UserGroups>();
+	boolean alreadyInGroup = false;
+	String removeDefaultURL = "http://plato.cs.virginia.edu/~cs4720f13beet/users/removefromgroup/";
+	String removeURL;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -95,8 +103,69 @@ public class GroupPage extends Activity {
 		new GetAllMessages().execute(getMessagesURL);
 		getUsersURL += groupID + "/users";
 		new GetAllUsers().execute(getUsersURL);
+		checkGroupsURL += userName + "/groups";
+		new GetGroups().execute(checkGroupsURL);
 		
 		System.out.println("Location info: " + locationName + locationX + locationY);		
+	}
+	
+	//Method that gets all groups
+	private class GetGroups extends AsyncTask<String, Integer, String> {
+		@Override
+		protected void onPreExecute() {
+			
+		}
+
+		@Override
+		protected String doInBackground(String... params) {
+			// TODO Auto-generated method stub
+			String url = params[0];
+			
+			System.out.println(" doinbackground url: " + url);
+						
+			try {
+				String webJSON = getJSONfromURL(url);
+				
+				Gson gson = new Gson();
+				
+				JsonParser parser = new JsonParser();
+				System.out.println("This works");
+				System.out.println(webJSON);
+				JsonArray Jarray = parser.parse(webJSON).getAsJsonArray();
+				System.out.println("Jarray: " + Jarray.toString()); 
+				//result.add(webJSON);
+				//return ("done");
+				/*String elt = gson.fromJson(Jarray, String.class);
+				result.add(elt); */
+				
+				for (JsonElement obj : Jarray) {
+					System.out.println(obj.toString());
+					UserGroups elt = gson.fromJson(obj, UserGroups.class);
+					groups.add(elt);
+					//System.out.println("elt: " + elt);
+				} 
+			} catch (Exception e) {
+				System.out.println(e.getStackTrace().toString());
+			} 
+
+			return null;
+		}
+		
+		@Override
+		protected void onPostExecute(String result) {
+			Button b = (Button) findViewById(R.id.buttonScheduleActivity);
+			for (UserGroups g : groups) {
+				if (g.getGroup_id().toString().equals(groupID)) {
+					alreadyInGroup = true;
+				}
+			}
+			if (alreadyInGroup == true) {
+				b.setText("Remove from Group");
+			}
+			else {
+				b.setText("Join Group");
+			}
+		}
 	}
 	
 	//FOOTER
@@ -168,6 +237,7 @@ public class GroupPage extends Activity {
 			map.moveCamera(CameraUpdateFactory.newLatLngZoom(baseAddress, 17));
 			map.addMarker(new MarkerOptions()
 					.title(locationName)
+					.snippet("Closest building to all registered users")
 					.position(baseAddress));
 			closestParkingURL += "?lat=" + locationX + "&lon=" + locationY + "&num=1";
 			System.out.println(closestParkingURL);
@@ -177,10 +247,58 @@ public class GroupPage extends Activity {
 	
 	//Joins the user to that group
 	public void scheduleActivity(View view) {
-		System.out.println("This is this");
-		joinGroupURL = joinGroupDefaultURL;
-		joinGroupURL += groupID + "/add/" + userName;
-		new JoinGroup().execute(joinGroupURL);
+		Button b = (Button) findViewById(R.id.buttonScheduleActivity);
+		if (b.getText().toString().equals("Remove from Group")) {
+			removeURL = removeDefaultURL;
+			removeURL += userName + "/" + pass + "/" + groupID;
+			new Remove().execute(removeURL);
+		}
+		else {
+			joinGroupURL = joinGroupDefaultURL;
+			joinGroupURL += groupID + "/add/" + userName;
+			new JoinGroup().execute(joinGroupURL);
+		}
+	}
+	
+	//Actual method that joins the given group
+	private class Remove extends AsyncTask<String, Integer, String> {
+		@Override
+		protected void onPreExecute() {
+			
+		}
+
+		@Override
+		protected String doInBackground(String... params) {
+			// TODO Auto-generated method stub
+			String url = params[0];
+			
+			System.out.println(" doinbackground url: " + url);
+						
+			try {
+				String webJSON = getJSONfromURL(url);
+				
+				JsonParser parser = new JsonParser();
+
+				joinStatus = parser.parse(webJSON).getAsJsonObject();
+				
+			} catch (Exception e) {
+				System.out.println(e.getStackTrace().toString());
+			} 
+			return null;
+		}
+		
+		@Override
+		protected void onPostExecute(String result) {
+			Button joinButton = (Button) findViewById(R.id.buttonScheduleActivity);
+			if (joinStatus.get("success").toString().equals("true")) {
+				joinButton.setText("Removed");
+				joinButton.setClickable(false);
+			}
+			else {
+				joinButton.setText("Error removing from group");
+			}
+			removeURL = removeDefaultURL;
+		}
 	}
 	
 	//Submits message to Google App Engine

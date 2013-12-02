@@ -61,8 +61,8 @@ public class Login extends Activity {
 		
 		userName = (EditText) findViewById(R.id.editTextUserName);
 		password = (EditText) findViewById(R.id.editTextPassword);
-		userName.setText("kevin");
-		password.setText("kevin");
+		userName.setText("test");
+		password.setText("test");
 		
 		LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 		Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
